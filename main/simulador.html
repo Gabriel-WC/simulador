@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Custos com Instâncias Reservadas</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Calculadora de Custos com Instâncias Reservadas</h1>
+            <p class="description">Simule custos de instâncias em nuvem com diferentes cenários de instâncias reservadas</p>
+        </header>
+        
+        <section class="input-section">
+            <h2>Parâmetros de Entrada</h2>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="onDemandHourly">Preço On-Demand por Hora (R$):</label>
+                    <input type="number" id="onDemandHourly" step="0.0001" min="0.0001" value="0.0416">
+                </div>
+                
+                <div class="form-group">
+                    <label for="reservedDiscount">Desconto para Reservadas (%):</label>
+                    <input type="number" id="reservedDiscount" step="1" min="0" max="100" value="60">
+                </div>
+                
+                <div class="form-group">
+                    <label for="instancesTotal">Número Total de Instâncias:</label>
+                    <input type="number" id="instancesTotal" step="1" min="1" value="100">
+                </div>
+                
+                <div class="form-group">
+                    <label for="hoursPerMonth">Horas por Mês:</label>
+                    <input type="number" id="hoursPerMonth" step="1" min="1" value="730">
+                </div>
+                
+                <div class="form-group">
+                    <label for="reservedUpfront">Custo Antecipado Mensal por Instância (R$):</label>
+                    <input type="number" id="reservedUpfront" step="0.01" min="0" value="0">
+                </div>
+            </div>
+            
+            <button id="calculateBtn">Calcular Cenários</button>
+        </section>
+        
+        <section class="results-section">
+            <h2>Resultados dos Cenários</h2>
+            
+            <div class="scenarios" id="scenariosContainer">
+                <!-- Cenários serão gerados aqui via JavaScript -->
+            </div>
+            
+            <div class="custom-scenario">
+                <h3>Calcular Cenário Personalizado</h3>
+                <div class="custom-form">
+                    <div class="form-group">
+                        <label for="customPercentage">Porcentagem de Instâncias Reservadas (%):</label>
+                        <input type="number" id="customPercentage" step="1" min="0" max="100" value="50">
+                    </div>
+                    <button id="calculateCustomBtn">Calcular</button>
+                </div>
+                
+                <div class="result-grid" id="customResult">
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="script.js"></script>
+    
+</body>
+</html>
